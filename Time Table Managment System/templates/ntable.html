@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        select, button {
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .timetable-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>TIME TABLE OF SEMESTER S4</h1>
+    <div class="timetable-container">
+        <select>
+            <option value="S4">S4</option>
+            <option value="S5">S5</option>
+            <!-- Add more semesters as needed -->
+        </select>
+        <button type="button">SHOW TIME TABLE</button>
+    </div>
+
+    <div class="line"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SESSIONS</th>
+                <th>MONDAY</th>
+                <th>TUESDAY</th>
+                <th>WEDNESDAY</th>
+                <th>THURSDAY</th>
+                <th>FRIDAY</th>
+                <th>SATURDAY</th>
+            </tr>
+        </thead>
+    <tbody>
+	    {% for session, monday, tuesday, wednesday, thursday, friday, saturday in timetable %}
+	        {% for i in range(1) %}
+	            <tr>
+	                <td>{{ session[i] }}</td>
+	                <td>{{ monday[i] }}</td>
+	                <td>{{ tuesday[i] }}</td>
+	                <td>{{ wednesday[i] }}</td>
+	                <td>{{ thursday[i] }}</td>
+	                <td>{{ friday[i] }}</td>
+	                <td>{{ saturday[i] }}</td>
+	            </tr>
+	        {% endfor %}
+	    {% endfor %}
+    </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
